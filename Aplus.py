@@ -117,3 +117,20 @@ while True:
                     time.sleep(0.2)
     exit()
 GPIO.cleanup();
+
+
+'''
+#!/usr/bin/env python3
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM) # GPIO引脚编号的两种方式之一，另一种是BCM。所用编号方式不同，pin也不同。
+GPIO.setwarnings(False) # 禁用警告。
+GPIO.setup(21,GPIO.OUT) # pin为你所接的数据输出GPIO引脚。
+p = GPIO.PWM(21,50) # 在pin脚上产生频率为50HZ的PWM信号。
+p.start(0) # 在引脚上设置一个初始PWM信号。
+p.ChangeDutyCycle(10) # 通过输入不同的“占空比值”来观察舵机的位置变化，这里的“占空比”是3%。
+time.sleep(1)
+p.stop() # 停止PWM。
+GPIO.cleanup() # 清理GPIO。
+舵机测试代码
+'''
